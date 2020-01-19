@@ -44,3 +44,11 @@
 	> 弹出以下提示即构建成功：
 	>
 	> your application is running here: http://localhost:8080
+
+### 后端项目构建
+
+- 新建 SpringBoot 项目
+- 登录模块
+  - 权限认证采用 Spring Security 实现
+  - 数据库访问使用 mybatis
+  - 信息缓存使用 redis
