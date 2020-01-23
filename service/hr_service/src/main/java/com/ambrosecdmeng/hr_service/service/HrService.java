@@ -2,9 +2,11 @@ package com.ambrosecdmeng.hr_service.service;
 
 import com.ambrosecdmeng.hr_service.mapper.HrMapper;
 import com.ambrosecdmeng.hr_service.model.Hr;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 
 /**
@@ -14,15 +16,18 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
  * 如果查到了相关信息，直接返回。
  * 由 Spring Security 框架完成密码的对比操作
  */
+@Service
 public class HrService implements UserDetailsService {
 
+    @Autowired
     HrMapper hrMapper;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Hr hr = hrMapper.loadUserByUsername(s);
         if (hr == null)
-            throw new UsernameNotFoundException("Username not Found");
+            throw new UsernameNotFoundException("用户名不存在");
+        hr.setRoles(hrMapper.getHrRolesById(hr.getId()));
         return hr;
     }
 }
