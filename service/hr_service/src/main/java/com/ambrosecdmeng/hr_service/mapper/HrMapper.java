@@ -2,12 +2,10 @@ package com.ambrosecdmeng.hr_service.mapper;
 
 import com.ambrosecdmeng.hr_service.model.Hr;
 import com.ambrosecdmeng.hr_service.model.Role;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
 public interface HrMapper {
 
     int deleteByPrimaryKey(Integer id);

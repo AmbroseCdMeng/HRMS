@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="">
-    <resultMap id="" type="">
+<mapper namespace="com.ambrosecdmeng.hr_service.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="com.ambrosecdmeng.hr_service.model.Menu">
         <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+        <result column="component" property="component" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="iconCls" property="iconCls" jdbcType="VARCHAR"/>
+        <result column="parentId" property="parentId" jdbcType="VARCHAR"/>
+        <result column="enabled" property="enabled" jdbcType="BIT"/>
+        <association property="meta" javaType="com.ambrosecdmeng.hr_service.model.Meta">
+            <result column="keepAlive" property="keepAlive" jdbcType="BIT"/>
+            <result column="requireAuth" property="requireAuth" jdbcType="BIT"/>
+        </association>
     </resultMap>
+
+    <resultMap id="Menus2" type="com.ambrosecdmeng.hr_service.model.Menu" extends="BaseResultMap">
+        <collection property="children" ofType="com.ambrosecdmeng.hr_service.model.Menu">
+            <id column="id2" property="id" jdbcType="INTEGER"/>
+            <result column="url2" property="url" jdbcType="VARCHAR"/>
+            <result column="path2" property="path" jdbcType="VARCHAR"/>
+            <result column="component2" property="component" jdbcType="VARCHAR"/>
+            <result column="name2" property="name" jdbcType="VARCHAR"/>
+            <result column="iconCls2" property="iconCls" jdbcType="VARCHAR"/>
+            <result column="parentId2" property="parentId" jdbcType="VARCHAR"/>
+            <result column="enabled2" property="enabled" jdbcType="BIT"/>
+            <association property="meta" javaType="com.ambrosecdmeng.hr_service.model.Meta">
+                <result column="keepAlive2" property="keepAlive" jdbcType="BIT"/>
+                <result column="requireAuth2" property="requireAuth" jdbcType="BIT"/>
+            </association>
+        </collection>
+    </resultMap>
+
+    <resultMap id="MenuWithRole" type="com.ambrosecdmeng.hr_service.model.Menu" extends="BaseResultMap">
+
+    </resultMap>
+
     <sql id="">
         id, name
     </sql>

@@ -19,7 +19,7 @@ public class MenuService {
     MenuMapper menuMapper;
 
     /**
-     * getAllMenu 方法在每次请求时都需要查询数据库，效率低，因此将之缓存下来
+     * getAllMenus 方法在每次请求时都需要查询数据库，效率低，因此将之缓存下来
      * <p>
      * 这里使用方法名作为缓存 key，另外需要在项目启动类添加 @EnableCaching 注解开启缓存
      *
@@ -27,6 +27,6 @@ public class MenuService {
      */
     @Cacheable(key = "#root.methodName")
     public List<Menu> getAllMenu() {
-        return menuMapper.getAllMenu();
+        return menuMapper.getAllMenus();
     }
 }
