@@ -7,24 +7,23 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface HrMapper {
-
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Hr model);
+    int insert(Hr record);
 
-    int insertSelective(Hr model);
+    int insertSelective(Hr record);
 
     Hr selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKey(Hr model);
+    int updateByPrimaryKeySelective(Hr record);
 
-    int updateByPrimaryKeySelective(Hr model);
+    int updateByPrimaryKey(Hr record);
 
     Hr loadUserByUsername(String username);
 
     List<Role> getHrRolesById(Integer id);
 
-    List<Hr> getAllHrs(@Param("hrid") Integer id, @Param("keywords") String keywords);
+    List<Hr> getAllHrs(@Param("hrid") Integer hrid, @Param("keywords") String keywords);
 
     List<Hr> getAllHrsExceptCurrentHr(Integer id);
 }

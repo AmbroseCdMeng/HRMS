@@ -1,5 +1,6 @@
 package com.ambrosecdmeng.hr_service.model;
 
+
 public class HrRole {
     private Integer id;
 

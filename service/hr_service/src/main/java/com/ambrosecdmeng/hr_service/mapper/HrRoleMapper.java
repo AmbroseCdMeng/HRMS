@@ -6,17 +6,17 @@ import org.apache.ibatis.annotations.Param;
 public interface HrRoleMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(HrRole model);
+    int insert(HrRole record);
 
-    int insertSelective(HrRole model);
+    int insertSelective(HrRole record);
 
     HrRole selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(HrRole model);
+    int updateByPrimaryKeySelective(HrRole record);
 
-    int updateByPrimaryKey(HrRole model);
+    int updateByPrimaryKey(HrRole record);
 
     void deleteByHrid(Integer hrid);
 
-    Integer addRole(@Param("hrid") Integer id, @Param("rids") Integer[] rids);
+    Integer addRole(@Param("hrid") Integer hrid, @Param("rids") Integer[] rids);
 }

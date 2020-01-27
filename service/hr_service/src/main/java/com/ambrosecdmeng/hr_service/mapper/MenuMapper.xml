@@ -199,6 +199,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
+
     <update id="updateByPrimaryKey" parameterType="com.ambrosecdmeng.hr_service.model.Menu">
     update menu
     set url = #{url,jdbcType=VARCHAR},
